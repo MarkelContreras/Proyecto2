@@ -1,0 +1,79 @@
+===========================
+🧪 1. CONFIGURACIÓN DEL SISTEMA
+===========================
+
+Habilitar volcado de núcleo para debugging (core dumps):
+echo core | sudo tee /proc/sys/kernel/core_pattern
+
+source ~/Documents/Versions/Test/entornoTest/bin/activate
+
+===========================
+⚙️ 2. COMPILACIÓN DEL PROGRAMA PARA FUZZING
+===========================
+
+Compilar con AFL++:
+./afl-clang-fast -o <output_binary> <source_code.c>
+
+===========================
+🚀 3. EJECUCIÓN DE FUZZING
+===========================
+
+Fuzzing local:
+./afl-fuzz -i inputs -o outputs -m 100 -- ./programa @@
+
+Fuzzing remoto (por socket TCP con socat):
+afl-fuzz -n -i inputs -o output -t 1000 -m none -- sh -c 'cat @@ | socat - TCP:172.16.124.103:1234'
+
+Fuzzing remoto usando script wrapper:
+afl-fuzz -n -i inputs -o outputs -t 5000 -m none -- ./wrapper_fuzzing.sh @@  
+
+
+===========================
+🛑 4. CONTROL DE PROCESOS
+===========================
+
+🔹 Matar procesos `afl-fuzz` en local:
+ps aux | grep afl-fuzz | awk '{print $2}' | xargs kill -9
+
+🔹 Matar procesos `python3` en la Raspberry Pi (remoto):
+ssh markel@172.16.124.103 "ps aux | grep python3 | grep -v grep | awk '{print \$2}' | xargs -r kill -9"
+
+🔹 Matar `servidor.py` en la Raspberry Pi (remoto):
+ssh markel@172.16.124.103 "ps aux | grep servidor.py | grep -v grep | awk '{print \$2}' | xargs -r kill -9"
+
+💡 Alternativa más sencilla usando `pkill`:
+
+ssh markel@172.16.124.103 "pkill -f python3"
+ssh markel@172.16.124.103 "pkill -f servidor.py"
+pkill -f afl-fuzz
+===========================
+🗃️ 5. BASE DE DATOS MYSQL: GESTIÓN Y CONSULTAS
+===========================
+
+Acceder a MySQL desde terminal
+sudo mysql -u root -p
+
+Una vez dentro de MySQL:
+USE fuzzing_data;
+SHOW TABLES;
+DESCRIBE fuzzing;
+SELECT * FROM dispositivos;
+
+===========================
+📊 6. CONSULTAS ÚTILES EN LA TABLA fuzzing
+===========================
+
+Ver todos los session_id distintos
+SELECT DISTINCT session_id FROM fuzzing;
+
+Ver session_id de un programa específico
+SELECT DISTINCT session_id FROM fuzzing WHERE programa = 'test1h2';
+
+Ver todos los programas distintos registrados
+SELECT DISTINCT programa FROM fuzzing;
+
+Eliminar todas las entradas de un programa específico
+DELETE FROM fuzzing WHERE programa = 'test1h2';
+
+cd ~/Documents/Versions/automatico
+python3 -m Fuzzing.Dashbord.dash2

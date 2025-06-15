@@ -1,0 +1,272 @@
+Servidor iniciado: 23/05/2025 08:20
+--------------------------
+Input: PING\n
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \x0f\xc7\x86\xf1\xe0\x0f\xc7\x0f8\x86\xf1\xe0\x0f\xc7\x86\xf1\xe0
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \xa4
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \xc3IMM\xa8
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: ILG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: G\x14G
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \xef\x86ii
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \xe9\xff\x00\x80IIHII\xffIII\xe9\xff\x80\x00IINII\xffIII\xb6IIIIJ\xb6IIIIJ@II/IIIMG
+Código de salida: 11
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: M\x00\x80
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: H_G
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: T\x00@
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \x1d\x1d\x1d\x02\x1d\xff\x7f
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: I
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: LMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IdG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: I;$
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMIMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IM.
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: 5fG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IjG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMYIMY
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IM\xff
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IM\x10
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: HMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: III\x01\x00
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIMIG
+Código de salida: 11
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: I\xf2\xf2
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IFG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IM 
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IM,
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: I-G
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \xe9MG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IIM
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: I\x00\x04
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMM
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: I\x01G
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: \x00\xffG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IYG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: ?MG
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------
+Input: IMD
+Código de salida: 0
+--------------------------
+Conexión cerrada: 23/05/2025 08:20
+--------------------------

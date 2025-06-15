@@ -1,0 +1,11 @@
+# Carpetas de entorno
+**/entornoTest/
+**/__pycache__/
+*.pyc
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos grandes o sensibles (opcional)
+*.zip
