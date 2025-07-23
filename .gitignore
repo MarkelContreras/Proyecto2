@@ -44,6 +44,5 @@ backupAutomatico*.tar.gz
 # === OTROS ===
 BackupsDB/
 entornotest/
-automatico/DashBoard/
 Test/App/salida_htop.txt
 
