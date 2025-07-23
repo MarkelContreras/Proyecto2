@@ -7,21 +7,23 @@ import codecs
 import datetime
 import tempfile
 
-# Verificar que se pasó un argumento
-if len(sys.argv) < 2:
-    print("Uso: python3 logical.py <nombre>")
+# Verificar que se pasaron los dos argumentos
+if len(sys.argv) < 3:
+    print("Uso: python3 servidor.py <programa> <sesion>")
     sys.exit(1)
 
-# El parámetro define el "nombre" base para el binario y el log
-param = sys.argv[1]
+programa = sys.argv[1]
+sesion = int(sys.argv[2])
 
-# Crear carpeta Logs si no existe
-LOG_DIR = "Logs"
+# Ruta al binario a ejecutar
+BINARIO = f"./{programa}"
+
+# Crear carpeta de logs
+LOG_DIR = f"Logs/FuzzingRasberry/{programa}"
 os.makedirs(LOG_DIR, exist_ok=True)
 
-# Se asignan BINARIO y LOG_FILE basándose en el parámetro recibido
-BINARIO = f"./{param}"
-LOG_FILE = os.path.join(LOG_DIR, f"{param}_log.txt")
+# Ruta del archivo de log de la sesión
+LOG_FILE = os.path.join(LOG_DIR, f"sesion_{sesion}.txt")
 
 print("BINARIO configurado como:", BINARIO)
 print("LOG_FILE configurado como:", LOG_FILE)
@@ -47,7 +49,6 @@ def ejecutar_binario(input_data):
         print(f"Error al ejecutar el binario: {e}", file=sys.stderr)
         return 125
 
-
 def guardar_log(input_data, exit_code):
     escaped_input = codecs.escape_encode(input_data)[0].decode('ascii')
     with open(LOG_FILE, "a", encoding="utf-8") as log:
@@ -67,12 +68,12 @@ def start_server(host='0.0.0.0', port=1234):
     server_socket.bind((host, port))
     server_socket.listen(5)
     print(f"Servidor escuchando en {host}:{port}...")
-    
+
     try:
         while True:
             client_socket, client_address = server_socket.accept()
             print(f"Conexión establecida con {client_address}")
-            
+
             data = client_socket.recv(1024)
             if data:
                 print(f"Input recibido: {data}")
@@ -80,24 +81,24 @@ def start_server(host='0.0.0.0', port=1234):
                 guardar_log(data, exit_code)
             try:
                 client_socket.sendall(f"{exit_code}".encode('latin-1'))
-                client_socket.shutdown(socket.SHUT_RDWR) 
+                client_socket.shutdown(socket.SHUT_RDWR)
             except Exception as e:
                 print("Error al cerrar conexión correctamente:", e)
             finally:
                 client_socket.close()
             log_connection_closed()
-    
+
     except KeyboardInterrupt:
         print("Servidor detenido.")
     finally:
         server_socket.close()
 
 if __name__ == "__main__":
-    # Limpiar el archivo de log al iniciar
+    # Limpiar el archivo de log de la sesión al iniciar
     open(LOG_FILE, "wb").close()
     inicio = datetime.datetime.now().strftime("%d/%m/%Y %H:%M")
     with open(LOG_FILE, "a", encoding="utf-8") as log:
         log.write(f"Servidor iniciado: {inicio}\n")
         log.write("--------------------------\n")
-    
+
     start_server()

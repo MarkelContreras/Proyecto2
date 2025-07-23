@@ -1,11 +1,49 @@
-# Carpetas de entorno
-**/entornoTest/
-**/__pycache__/
+# === CONFIGURACIONES Y TEMPORALES ===
+.vscode/
+__pycache__/
 *.pyc
+*.pyo
+*.log
+*.tmp
+*.bak
 
-# Archivos de sistema
-.DS_Store
-Thumbs.db
+# === JUPYTER NOTEBOOKS Y CHECKPOINTS ===
+.ipynb_checkpoints/
+*.ipynb
 
-# Archivos grandes o sensibles (opcional)
-*.zip
+# === ARCHIVOS Y DATOS GENERADOS ===
+*.txt
+*.csv
+*.json
+*.parquet
+*.duckdb
+*.tar.gz
+
+# === FOLDER SALIDAS DE FUZZING Y LOGS ===
+automatico/Fuzzing/outputs/
+automatico/Logs/
+automatico/fuzzing.duckdb
+automatico/resumen_fuzzing.parquet
+automatico/DatosFuzzing.ipynb
+automatico/volcar_monitor_log.py
+automatico/raspyArchivos/
+automatico/binarios/
+automatico/programa/
+
+# === SCRIPTS TEMPORALES / PRUEBA ===
+1.0/PC/datosFuzzing/
+1.0/PC/sesionesFuzzing/
+1.0/outputs/
+1.0/borrar.py
+1.0/resumen.py
+prueba.py
+rendimiento.py
+log_rendimiento.txt
+backupAutomatico*.tar.gz
+
+# === OTROS ===
+BackupsDB/
+entornotest/
+automatico/DashBoard/
+Test/App/salida_htop.txt
+

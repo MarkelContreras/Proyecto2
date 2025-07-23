@@ -1,11 +1,15 @@
 # dash2.py - updated with collapsibles and improved styles
 import pandas as pd
-import dash
-from dash import dcc, html, Input, Output, State
-import dash_bootstrap_components as dbc
 import time
+import sys
 
-# Imports corregidos
+import dash
+from dash import html, dcc
+from dash.dependencies import Input, Output, State
+import dash_bootstrap_components as dbc
+import os
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "../../../")))
+
 from Fuzzing.Dashboard.graficos_sesion import (
     generar_graficos_sesion,
     grafico_errores_por_codigo,
@@ -28,6 +32,7 @@ from Fuzzing.Dashboard.graficos_globales import (
     grafico_ratio_fallos
 )
 from utils.config_db import get_connection
+
 
 
 conn = get_connection()
