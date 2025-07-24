@@ -5,7 +5,7 @@ _DB_CONFIG = {
     "host": "localhost",
     "user": "root",
     "password": "markeladmin",
-    "database": "demofinal"
+    "database": "autoprueba"
 }
 
 def get_database_name():

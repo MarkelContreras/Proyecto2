@@ -1,0 +1,7 @@
+# environment variables:
+AFL_CUSTOM_INFO_PROGRAM=./wrapper_fuzzing.sh
+AFL_CUSTOM_INFO_PROGRAM_ARGV=@@
+AFL_CUSTOM_INFO_OUT=output
+AFL_DEBUG=1
+# command line:
+'afl-fuzz' '-n' '-i' 'inputs' '-o' 'output' '-t' '5000' '-m' 'none' '--' './wrapper_fuzzing.sh' '@@'

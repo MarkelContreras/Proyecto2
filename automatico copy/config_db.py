@@ -6,7 +6,7 @@ def get_connection():
             host="localhost",
             user="root",
             password="markeladmin",
-            database="demofinal"
+            database="autoprueba"
         )
     except mysql.connector.Error as err:
         print("❌ Error al conectar con la base de datos:", err)

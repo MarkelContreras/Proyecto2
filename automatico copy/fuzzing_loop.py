@@ -14,19 +14,26 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "programa"))
 from programa.programa import seleccionar_archivo
 import shutil
 
-def seleccionar_fuzzer():
-    print("\n📦 ¿Qué fuzzer deseas usar?")
-    print("1. AFL++")
-    print("2. AFLFast")
-    
-    while True:
-        opcion = input("Selecciona una opción (1 o 2): ").strip()
-        if opcion == "1":
-            return "afl-fuzz"
-        elif opcion == "2":
-            return "aflfast-fuzz"
-        else:
-            print("❌ Opción no válida. Elige 1 o 2.")
+
+
+
+# Clase para duplicar la salida de la consola en un archivo de log (ejecucion.txt)
+class DuplicadorSalida:
+    def __init__(self, archivo):
+        self.consola = sys.__stdout__
+        self.archivo = open(archivo, "w", buffering=1)  # Abre el archivo en modo escritura, con buffering lineal
+
+    def write(self, mensaje):
+        self.consola.write(mensaje)          # Escribe en la consola
+        self.archivo.write(mensaje)           # Escribe en el archivo
+
+    def flush(self):
+        self.consola.flush()                 # Vacía el buffer de la consola
+        self.archivo.flush()                 # Vacía el buffer del archivo
+
+# Redirigir stdout y stderr para que la salida se duplique en ejecucion.txt
+sys.stdout = DuplicadorSalida("ejecucion.txt")
+sys.stderr = sys.stdout
 
 create_database_and_tables()
 
@@ -215,9 +222,6 @@ duracion_sesion = int(input("¿Cuánto tiempo debe durar cada sesión? (en segun
 
 # --------------------- BUCLE DE EJECUCIÓN DE SESIONES --------------------- #
 
-fuzzer_bin = seleccionar_fuzzer()
-print(f"🔧 Usando el fuzzer: {fuzzer_bin}")
-
 for i in range(num_iteraciones):
     sesion_actual = sesion_inicial + i
     sesion_str = f"sesion_{sesion_actual}"
@@ -290,9 +294,8 @@ for i in range(num_iteraciones):
     print(f"💨 Lanzando fuzzer local durante {duracion_sesion} segundos...")
     try:
         fuzzer_command = (
-            f"cd Fuzzing && {fuzzer_bin} -n -i inputs -o outputs -t 5000 -m none -- /bin/bash ./wrapper_fuzzing.sh @@"
+            f"cd Fuzzing && afl-fuzz -n -i inputs -o outputs -t 5000 -m none -- /bin/bash ./wrapper_fuzzing.sh @@"
         )
-
         fuzzer_process = subprocess.Popen(fuzzer_command, shell=True)
     except Exception as e:
         print(f"❌ Error al lanzar el fuzzer: {e}")
@@ -304,8 +307,7 @@ for i in range(num_iteraciones):
 
     # --- 8. Matar el proceso del fuzzer --- #
     print("🚝 Matando proceso afl-fuzz...")
-    subprocess.run(f"pkill -9 -f {fuzzer_bin}", shell=True)
-
+    subprocess.run("ps aux | grep afl-fuzz | grep -v grep | awk '{print $2}' | xargs -r kill -9", shell=True)
 
     # --- 9. Detener el servidor remoto --- #
     print("🚝 Deteniendo servidor remoto...")
@@ -342,10 +344,6 @@ for i in range(num_iteraciones):
         subprocess.run(["scp", rendimiento_remote, rendimiento_local])
 
         print("✅ Logs copiados correctamente.")
-        
-        # Limpiar la consola para que los prints salgan limpios
-        subprocess.run("clear", shell=True)
-
 
         # Procesar el log de fuzzing con el script correspondiente
         print("🧪 Procesando los logs copiados...")
@@ -379,3 +377,4 @@ else:
 dashboard_script = os.path.join("DashBoard", "Dashboard.py")
 print("📊 Lanzando dashboard interactivo con Streamlit...")
 subprocess.run(["streamlit", "run", dashboard_script])
+
